@@ -25,7 +25,7 @@ export interface SchemaBuilderRef {
 }
 
 export const SchemaBuilder = forwardRef<SchemaBuilderRef, SchemaBuilderProps>(({ onSchemaChange, addFieldButtonClass }, ref) => {
-  const { control, watch, setValue, register, reset } = useForm<SchemaForm>({
+  const { control, watch, setValue, reset } = useForm<SchemaForm>({
     defaultValues: {
       fields: [{ name: "", type: "" }]
     }
@@ -66,6 +66,9 @@ export const SchemaBuilder = forwardRef<SchemaBuilderRef, SchemaBuilderProps>(({
           schema[field.name] = "boolean"
         } else if (field.type === "objectId") {
           schema[field.name] = "ObjectId"
+        } else {
+          // Show empty object for fields with name but no type selected
+          schema[field.name] = {}
         }
       }
     })
@@ -111,18 +114,27 @@ export const SchemaBuilder = forwardRef<SchemaBuilderRef, SchemaBuilderProps>(({
     setValue("fields", updatedFields)
   }
 
+  function updateFieldNameAtPath(path: number[], name: string) {
+    const updatedFields = JSON.parse(JSON.stringify(watchedFields))
+    let ref = updatedFields
+    for (let i = 0; i < path.length - 1; i++) {
+      ref = ref[path[i]].children
+    }
+    const idx = path[path.length - 1]
+    ref[idx] = { ...ref[idx], name }
+    setValue("fields", updatedFields)
+  }
+
   function renderFields(fields: SchemaField[], path: number[] = [], level = 0) {
     return fields.map((field, idx) => {
       const currentPath = [...path, idx]
-      const fieldPath = currentPath.flatMap((i, d) => d === 0 ? [i] : ["children", i])
-      const registerPath = `fields.${fieldPath.join(".")}.name`
       return (
         <div key={currentPath.join("-")} className="space-y-3">
           <div className="flex items-center gap-4 bg-white/5 rounded-xl p-4 shadow-inner border border-neutral-800 transition-all">
-            {/* @ts-ignore */}
             <Input
               placeholder="Field name"
-              {...register(registerPath as any)}
+              value={field.name}
+              onChange={(e) => updateFieldNameAtPath(currentPath, e.target.value)}
               className="flex-1 bg-transparent border-neutral-700 text-white placeholder-neutral-400 focus:ring-2 focus:ring-neutral-600 focus:border-neutral-600 rounded-lg transition-all"
             />
             <Select
