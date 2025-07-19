@@ -1,46 +1,144 @@
-# Getting Started with Create React App
+# JSON Schema Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, interactive JSON Schema Builder built with React, TypeScript, and ShadCN UI. Create, edit, and visualize JSON schemas with a beautiful, user-friendly interface.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **Dynamic Schema Building**: Add, edit, and delete fields with real-time updates
+- **Recursive Nested Fields**: Create complex nested object structures
+- **Live JSON Preview**: See your schema as JSON in real-time
+- **Save & Load Schemas**: Persist your schemas locally
+- **Modern UI**: Beautiful dark theme with glass morphism effects
+- **Responsive Design**: Works perfectly on desktop and mobile
+- **Portfolio Integration**: Professional About Me page with project showcase
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Frontend**: React 19, TypeScript
+- **UI Components**: ShadCN UI, TailwindCSS
+- **Form Management**: React Hook Form
+- **Routing**: React Router v6
+- **Styling**: TailwindCSS with custom animations
+- **Icons**: Lucide React
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📦 Installation
 
-### `npm test`
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Ayushm19/json-schema-builder.git
+   cd json-schema-builder
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-### `npm run build`
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **Open your browser**
+   Navigate to `http://localhost:3000`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🎯 Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Building Schemas
+1. **Add Fields**: Click "Add Field" to create new schema fields
+2. **Set Types**: Choose from string, number, float, boolean, objectId, or nested
+3. **Nested Objects**: Select "nested" type to create sub-objects
+4. **Real-time Preview**: Watch your JSON schema update as you type
 
-### `npm run eject`
+### Saving & Loading
+- **Save Schema**: Use the save functionality to store your schema
+- **Load Schema**: Retrieve previously saved schemas
+- **Clear**: Reset the form to start fresh
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Portfolio Features
+- **About Me**: Professional portfolio page with skills and projects
+- **Contact Info**: Direct links to LinkedIn, GitHub, email, and phone
+- **Project Showcase**: Display your other projects with preview images
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🎨 UI Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- **Dark Theme**: Modern dark interface with neon accents
+- **Glass Morphism**: Beautiful translucent card effects
+- **Hover Animations**: Smooth transitions and interactive elements
+- **Responsive Layout**: Optimized for all screen sizes
+- **Copy to Clipboard**: One-click copying of contact information
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 📱 Responsive Design
 
-## Learn More
+- **Desktop**: Full-featured interface with side-by-side layout
+- **Tablet**: Optimized layout for medium screens
+- **Mobile**: Touch-friendly interface with stacked layout
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🚀 Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Vercel (Recommended)
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy automatically with zero configuration
+
+### Other Platforms
+- **Netlify**: Drag and drop deployment
+- **GitHub Pages**: Static site hosting
+- **AWS S3**: Cloud hosting solution
+
+## 📁 Project Structure
+
+```
+json-schema-builder/
+├── public/
+│   ├── aboutme-photo.jpg
+│   ├── banner-photo.jpg
+│   └── project-previews/
+├── src/
+│   ├── components/
+│   │   ├── ui/           # ShadCN UI components
+│   │   ├── AboutMe.tsx   # Portfolio page
+│   │   ├── Header.tsx    # Navigation header
+│   │   ├── JsonPreview.tsx
+│   │   ├── SchemaBuilder.tsx
+│   │   └── SchemaList.tsx
+│   ├── App.tsx
+│   └── index.tsx
+├── package.json
+└── README.md
+```
+
+## 🎯 Key Components
+
+- **SchemaBuilder**: Main form component with recursive field rendering
+- **JsonPreview**: Real-time JSON display with validation
+- **AboutMe**: Professional portfolio page
+- **Header**: Navigation with routing
+- **SchemaList**: Saved schemas management
+
+## 🔧 Customization
+
+### Adding New Field Types
+1. Update the `SchemaField` interface in `SchemaBuilder.tsx`
+2. Add new type options to the Select component
+3. Update the `buildJsonSchema` function
+
+### Styling Changes
+- Modify TailwindCSS classes for visual updates
+- Update color scheme in `tailwind.config.js`
+- Customize animations and transitions
+
+## 📞 Contact
+
+- **LinkedIn**: [Ayush Mishra](https://www.linkedin.com/in/ayush-mishra-941990211/)
+- **GitHub**: [Ayushm19](https://github.com/Ayushm19)
+- **Email**: knandan400@gmail.com
+- **Phone**: +91 8826336732
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+**Built with ❤️ by Ayush Mishra**
