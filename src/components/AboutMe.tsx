@@ -3,7 +3,7 @@ import React from "react";
 const projects = [
   {
     name: "JSON Schema Builder",
-    url: "https://your-deployed-link.com",
+    url: "https://json-schema-builder-ayushmishra-iota-seven.vercel.app/",
     description: "A modern JSON Schema Builder with recursive nesting, live preview, and beautiful UI built with React, TypeScript, and ShadCN UI.",
     preview: "/project-previews/schema-builder.png"
   },
